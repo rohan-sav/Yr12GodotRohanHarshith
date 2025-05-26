@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ff0uc6qcsy3n"]
+
+[ext_resource type="PackedScene" uid="uid://sbkk60pypuej" path="res://Terrain Assets/Winter Mountains/Fbx/Hill_winter_001.fbx" id="1_nk07w"]
+[ext_resource type="PackedScene" uid="uid://b2yqm2w2ohdrv" path="res://Terrain Assets/Winter Mountains/Fbx/Hill_winter_003.fbx" id="2_b3l84"]
+[ext_resource type="PackedScene" uid="uid://bn5fqf6ewx12u" path="res://Terrain Assets/Winter Mountains/Fbx/Hill_winter_005.fbx" id="3_l5xp4"]
+
+[node name="3D Tiles" type="Node3D"]
+
+[node name="Hill_winter_001" parent="." instance=ExtResource("1_nk07w")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 82.2705, 558.676, 863.488)
+
+[node name="Hill_winter_003" parent="." instance=ExtResource("2_b3l84")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 791.135, 948.923, 1226.21)
+
+[node name="Hill_winter_005" parent="." instance=ExtResource("3_l5xp4")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 1557.75, 1223.06, 1682.97)

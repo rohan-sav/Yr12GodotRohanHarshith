@@ -15,6 +15,7 @@ textures = [[], []]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 575.075, 0)
 
 [node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
 script = ExtResource("1_tlwt5")
 _terrain_data = ExtResource("2_aqk2v")
 chunk_size = 32

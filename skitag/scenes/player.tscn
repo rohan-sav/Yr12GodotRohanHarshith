@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cslarprd0aur"]
+
+[ext_resource type="PackedScene" uid="uid://bk8amwcoknv5t" path="res://scenes/mixamo_base.glb" id="1_3vyb7"]
+
+[sub_resource type="GDScript" id="GDScript_g2els"]
+script/source = "extends CharacterBody3D
+
+@onready var camera_mount = $camera_mount
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+var sens_horizontal = 0.5
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(event.relative.x+sens_horizontal))
+		camera_mount.rotate_x(deg_to_rad(-event.relative.y))
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qhqgy"]
+radius = 0.3
+
+[node name="Player" type="CharacterBody3D"]
+script = SubResource("GDScript_g2els")
+
+[node name="visuals" type="Node3D" parent="."]
+
+[node name="mixamo_base" parent="." instance=ExtResource("1_3vyb7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="camera_mount" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="camera_mount"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6357, 1.0671)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00575, 0)
+shape = SubResource("CylinderShape3D_qhqgy")

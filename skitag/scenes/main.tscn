@@ -38,13 +38,16 @@ shadow_enabled = true
 environment = SubResource("Environment_jyhfs")
 
 [node name="Player" parent="." instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2662, 31.8522, 8.34517)
 
 [node name="Path3D" type="Path3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1.05984, 0, 0, 0, 1.05984, 0, 6.63018, 0)
 curve = SubResource("Curve3D_7dm0k")
 metadata/_edit_group_ = true
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(2.44565, 0, 0, 0, 2.44565, 0, 0, 0, 2.44565, 0, 9.91236, 0)
+use_collision = true
 polygon = PackedVector2Array(0, 0, 0.00227273, 0.0757746, 0.997384, 0.073756, 1, 0)
 mode = 2
 path_node = NodePath("..")

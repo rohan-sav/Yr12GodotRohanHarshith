@@ -11,14 +11,15 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 var sens_horizontal = 0.5
+var sens_vertical = 0.5
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(event.relative.x+sens_horizontal))
-		camera_mount.rotate_x(deg_to_rad(-event.relative.y))
+		rotate_y(deg_to_rad(-event.relative.x+sens_horizontal))
+		camera_mount.rotate_x(deg_to_rad(-event.relative.y+sens_vertical))
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -54,11 +55,12 @@ script = SubResource("GDScript_g2els")
 [node name="mixamo_base" parent="." instance=ExtResource("1_3vyb7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="camera_mount" type="Node3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="camera_mount"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6357, 1.0671)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00575, 0)
 shape = SubResource("CylinderShape3D_qhqgy")
+
+[node name="camera_mount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965368, 0.260892, 0, -0.260892, 0.965368, 0, 1.48671, 0.00675023)
+
+[node name="Camera3D" type="Camera3D" parent="camera_mount"]
+transform = Transform3D(1, 0, 0, 0, 0.994882, -0.101039, 0, 0.101039, 0.994882, -0.00670719, -0.050184, 1.2845)

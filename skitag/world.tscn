@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwhhwui6q8xa4"]
+[gd_scene load_steps=7 format=3 uid="uid://cwhhwui6q8xa4"]
 
 [ext_resource type="Script" uid="uid://h3d5ks2mbjte" path="res://addons/zylann.hterrain/hterrain.gd" id="1_tlwt5"]
 [ext_resource type="Resource" uid="uid://biu23ojd42dke" path="res://Terrain Assets/GLB format-Kenney Assets/data.hterrain" id="2_aqk2v"]
 [ext_resource type="Script" uid="uid://cl07a4pxyos83" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_036b0"]
+[ext_resource type="MeshLibrary" uid="uid://bqj7rogea1ara" path="res://tiles.tres" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://dc387oxfc3a8a" path="res://Terrain Assets/GLB format-Kenney Assets/cabin-fence.glb" id="5_036b0"]
 
 [sub_resource type="Resource" id="Resource_dwbse"]
 script = ExtResource("3_036b0")
@@ -11,8 +13,8 @@ textures = [[], []]
 
 [node name="World" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 575.075, 0)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38887.2, 5926.54, 31485.3)
 
 [node name="HTerrain" type="Node3D" parent="."]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
@@ -33,3 +35,13 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://h3d5ks2mbjte"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.522409, 0, -0.852695, 0, 1, 0, 0.852695, 0, 0.522409, 14512.5, 0, 5913.48)
+light_energy = 2.939
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_aqk2v")
+
+[node name="cabin-fence2" parent="." instance=ExtResource("5_036b0")]
+transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 12957.6, 15790.5, 8964.42)

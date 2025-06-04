@@ -1,16 +1,265 @@
-[gd_scene load_steps=4 format=3 uid="uid://ff0uc6qcsy3n"]
+[gd_scene load_steps=87 format=3 uid="uid://ff0uc6qcsy3n"]
 
-[ext_resource type="PackedScene" uid="uid://sbkk60pypuej" path="res://Terrain Assets/Winter Mountains/Fbx/Hill_winter_001.fbx" id="1_nk07w"]
-[ext_resource type="PackedScene" uid="uid://b2yqm2w2ohdrv" path="res://Terrain Assets/Winter Mountains/Fbx/Hill_winter_003.fbx" id="2_b3l84"]
-[ext_resource type="PackedScene" uid="uid://bn5fqf6ewx12u" path="res://Terrain Assets/Winter Mountains/Fbx/Hill_winter_005.fbx" id="3_l5xp4"]
+[ext_resource type="PackedScene" uid="uid://de6fe42m3va10" path="res://Terrain Assets/Fences/Metal_Fence.fbx" id="1_3fibq"]
+[ext_resource type="PackedScene" uid="uid://b4cqmbji2raby" path="res://Terrain Assets/Fences/Barricade.fbx" id="2_ifaaw"]
+[ext_resource type="PackedScene" uid="uid://blm6rgolitcxe" path="res://Terrain Assets/Fences/Barricades.fbx" id="3_1g1ux"]
+[ext_resource type="PackedScene" uid="uid://h60jbxybw06n" path="res://Terrain Assets/Fences/Barricades_001.fbx" id="4_kuje5"]
+[ext_resource type="PackedScene" uid="uid://bm2tea4lnmfjl" path="res://Terrain Assets/Fences/Barricades_002.fbx" id="5_jbrrv"]
+[ext_resource type="PackedScene" uid="uid://b7mhifgpnxt7p" path="res://Terrain Assets/Fences/Barricades_003.fbx" id="6_kjo7d"]
+[ext_resource type="PackedScene" uid="uid://c2me54indo7rg" path="res://Terrain Assets/Fences/Barricades_004.fbx" id="7_onj0r"]
+[ext_resource type="PackedScene" uid="uid://bccmfbyp7coxu" path="res://Terrain Assets/Fences/Barricades_005.fbx" id="8_vy5bv"]
+[ext_resource type="PackedScene" uid="uid://4cud8raviyn4" path="res://Terrain Assets/Fences/Barricades_006.fbx" id="9_o4v63"]
+[ext_resource type="PackedScene" uid="uid://cokdf62a2v5gb" path="res://Terrain Assets/Fences/Barricades_007.fbx" id="10_3c1oe"]
+[ext_resource type="PackedScene" uid="uid://4dvi17enke5y" path="res://Terrain Assets/Fences/Barricades_008.fbx" id="11_i22nm"]
+[ext_resource type="PackedScene" uid="uid://057vgon73f7k" path="res://Terrain Assets/Fences/Barricades_009.fbx" id="12_bhavx"]
+[ext_resource type="PackedScene" uid="uid://bvuu30qtd7aos" path="res://Terrain Assets/Fences/Barricades_013.fbx" id="13_1xk01"]
+[ext_resource type="PackedScene" uid="uid://fg30ca2lsej1" path="res://Terrain Assets/Fences/Barricades_014.fbx" id="14_3xd7g"]
+[ext_resource type="PackedScene" uid="uid://o5iuhpffll0p" path="res://Terrain Assets/Fences/Barricades_016.fbx" id="15_i0yx8"]
+[ext_resource type="PackedScene" uid="uid://u8ju4v5wrd5u" path="res://Terrain Assets/Fences/Barricades_017.fbx" id="16_jv7og"]
+[ext_resource type="PackedScene" uid="uid://csxib23hxd177" path="res://Terrain Assets/Fences/Barricades_018.fbx" id="17_u2n2s"]
+[ext_resource type="PackedScene" uid="uid://y2clse2vckl1" path="res://Terrain Assets/Fences/Barricades_019.fbx" id="18_o1dar"]
+[ext_resource type="PackedScene" uid="uid://1oxlcqnm624y" path="res://Terrain Assets/Fences/Barricades_020.fbx" id="19_jx0qa"]
+[ext_resource type="PackedScene" uid="uid://c8ie4rm032dg4" path="res://Terrain Assets/Fences/Barricades_021.fbx" id="20_usctd"]
+[ext_resource type="PackedScene" uid="uid://ds74r3x8o4atf" path="res://Terrain Assets/Fences/Barricades_023.fbx" id="21_u5fcr"]
+[ext_resource type="PackedScene" uid="uid://c5bsignx11trh" path="res://Terrain Assets/Fences/Barricades_024.fbx" id="22_d3jeo"]
+[ext_resource type="PackedScene" uid="uid://dlugej177jlu6" path="res://Terrain Assets/Fences/Barricades_031.fbx" id="23_amfdw"]
+[ext_resource type="PackedScene" uid="uid://tqbjfxljdhh7" path="res://Terrain Assets/Fences/Barricades_033.fbx" id="24_11ccc"]
+[ext_resource type="PackedScene" uid="uid://dd2t7sky715da" path="res://Terrain Assets/Fences/Barricades_034.fbx" id="25_uhbwu"]
+[ext_resource type="PackedScene" uid="uid://fc6mss1duckm" path="res://Terrain Assets/Fences/Guard_rail_road_005.fbx" id="26_fupk7"]
+[ext_resource type="PackedScene" uid="uid://dkvtmv4fgwt0a" path="res://Terrain Assets/Fences/Guard_rail_road_006.fbx" id="27_x3ukv"]
+[ext_resource type="PackedScene" uid="uid://dcyittvsgut7l" path="res://Terrain Assets/Fences/Guard_rail_road_007.fbx" id="28_kti6a"]
+[ext_resource type="PackedScene" uid="uid://wnhxj2tgc6wo" path="res://Terrain Assets/Fences/Guard_rail_road_008.fbx" id="29_f4qwc"]
+[ext_resource type="PackedScene" uid="uid://cawd0putrydvc" path="res://Terrain Assets/Fences/Guard_rail_road_009.fbx" id="30_80kre"]
+[ext_resource type="PackedScene" uid="uid://cfl62nbmwpoe1" path="res://Terrain Assets/Fences/Guard_rail_road_010.fbx" id="31_sa7te"]
+[ext_resource type="PackedScene" uid="uid://dspfmchdsfhpy" path="res://Terrain Assets/Fences/Guard_rail_road_011.fbx" id="32_edxcv"]
+[ext_resource type="PackedScene" uid="uid://ce0sy3rnji21d" path="res://Terrain Assets/Fences/Guard_rail_road_012.fbx" id="33_f1l7d"]
+[ext_resource type="PackedScene" uid="uid://upocr41oy31y" path="res://Terrain Assets/Fences/Guard_rail_road_013.fbx" id="34_nukoi"]
+[ext_resource type="PackedScene" uid="uid://lk866u3ch5k0" path="res://Terrain Assets/Fences/Guard_rail_road_014.fbx" id="35_d368m"]
+[ext_resource type="PackedScene" uid="uid://baur5tej0phlg" path="res://Terrain Assets/Fences/Guard_rail_road_rail.fbx" id="36_orwul"]
+[ext_resource type="PackedScene" uid="uid://bdwig5ebec3eq" path="res://Terrain Assets/Fences/Guard_rail_road_rail_001.fbx" id="37_kmdxi"]
+[ext_resource type="PackedScene" uid="uid://bi0v1a0al2tyn" path="res://Terrain Assets/Fences/Guard_rail_road_rail_002.fbx" id="38_jcxcl"]
+[ext_resource type="PackedScene" uid="uid://c3581bv776gri" path="res://Terrain Assets/Fences/Guard_rail_road_rail_003.fbx" id="39_3e4qh"]
+[ext_resource type="PackedScene" uid="uid://cx1my5mauuiwv" path="res://Terrain Assets/Fences/Guard_rail_road_rail_stand.fbx" id="40_80k6s"]
+[ext_resource type="PackedScene" uid="uid://l6so38h4c186" path="res://Terrain Assets/Fences/Guard_rail_road_rail_stand_002.fbx" id="41_nbu0p"]
+[ext_resource type="PackedScene" uid="uid://d30p4odwup7dq" path="res://Terrain Assets/Fences/Guard_rail_road_rail_stand_003.fbx" id="42_4cwuq"]
+[ext_resource type="PackedScene" uid="uid://04fapytjs8v1" path="res://Terrain Assets/Fences/Metal_Barricade_001.fbx" id="43_k0ut7"]
+[ext_resource type="PackedScene" uid="uid://brgfei1cw757d" path="res://Terrain Assets/Fences/Metal_Barricade_002.fbx" id="44_8we2a"]
+[ext_resource type="PackedScene" uid="uid://d0dxbgjlb56gc" path="res://Terrain Assets/Fences/Metal_Barricade_003.fbx" id="45_yaeqn"]
+[ext_resource type="PackedScene" uid="uid://bd62md7vhip4q" path="res://Terrain Assets/Fences/Metal_Fence_001.fbx" id="46_3ekv2"]
+[ext_resource type="PackedScene" uid="uid://dq0ttj2ka82pp" path="res://Terrain Assets/Fences/Metal_Fence_002.fbx" id="47_kgwxw"]
+[ext_resource type="PackedScene" uid="uid://ctghyx1wqk2gh" path="res://Terrain Assets/Fences/Metal_Fence_003.fbx" id="48_iwwra"]
+[ext_resource type="PackedScene" uid="uid://cnn5bmbqygful" path="res://Terrain Assets/Fences/Metal_Fence_004.fbx" id="49_ildnw"]
+[ext_resource type="PackedScene" uid="uid://c81m6h3w42sa1" path="res://Terrain Assets/Fences/Metal_Fence_005.fbx" id="50_w3kct"]
+[ext_resource type="PackedScene" uid="uid://bgqrp5cqvh0on" path="res://Terrain Assets/Fences/Metal_Fence_006.fbx" id="51_bnrsw"]
+[ext_resource type="PackedScene" uid="uid://dgihdckxxpkva" path="res://Terrain Assets/Fences/Metal_Fence_007.fbx" id="52_mvbkv"]
+[ext_resource type="PackedScene" uid="uid://c5avlwhflnm6p" path="res://Terrain Assets/Fences/Metal_Fence_008.fbx" id="53_8pvpq"]
+[ext_resource type="PackedScene" uid="uid://b6kfe1ff8vvpq" path="res://Terrain Assets/Fences/Metal_Fence_009.fbx" id="54_iw3ru"]
+[ext_resource type="PackedScene" uid="uid://cyvs37dya7w0u" path="res://Terrain Assets/Fences/Metal_Fence_010.fbx" id="55_41bdk"]
+[ext_resource type="PackedScene" uid="uid://kgbf7sjals6s" path="res://Terrain Assets/Fences/Metal_Fence_011.fbx" id="56_1e0g2"]
+[ext_resource type="PackedScene" uid="uid://bxwe7ywsprhuo" path="res://Terrain Assets/Fences/Metal_Fence_012.fbx" id="57_e30se"]
+[ext_resource type="PackedScene" uid="uid://pwcgpbbnmy5h" path="res://Terrain Assets/Fences/Metal_Fence_013.fbx" id="58_ouvfu"]
+[ext_resource type="PackedScene" uid="uid://pmgh7oc448q8" path="res://Terrain Assets/Fences/Metal_Fence_014.fbx" id="59_2q8eg"]
+[ext_resource type="PackedScene" uid="uid://djmhukmyc4rri" path="res://Terrain Assets/Fences/Metal_Fence_015.fbx" id="60_y22a0"]
+[ext_resource type="PackedScene" uid="uid://cq86i1rxtf8tq" path="res://Terrain Assets/Fences/Metal_Fence_016.fbx" id="61_2u4sa"]
+[ext_resource type="PackedScene" uid="uid://b3v7bccpw5ove" path="res://Terrain Assets/Fences/Metal_Fence_017.fbx" id="62_j83dd"]
+[ext_resource type="PackedScene" uid="uid://b0lr83w57l6w5" path="res://Terrain Assets/Fences/Metal_Fence_018.fbx" id="63_65d78"]
+[ext_resource type="PackedScene" uid="uid://wsx64dci17v3" path="res://Terrain Assets/Fences/Metal_Fence_019.fbx" id="64_mk3y5"]
+[ext_resource type="PackedScene" uid="uid://cju8y2jhjbo7p" path="res://Terrain Assets/Fences/Metal_Fence_020.fbx" id="65_xg0eg"]
+[ext_resource type="PackedScene" uid="uid://d4iltcwkqq72x" path="res://Terrain Assets/Fences/Metal_Fence_021.fbx" id="66_6gv6q"]
+[ext_resource type="PackedScene" uid="uid://cfceyjkl281dp" path="res://Terrain Assets/Fences/Metal_Fence_022.fbx" id="67_7pgia"]
+[ext_resource type="PackedScene" uid="uid://c7bsyr5rst8d3" path="res://Terrain Assets/Fences/Metal_Fence_023.fbx" id="68_lsgip"]
+[ext_resource type="PackedScene" uid="uid://b6vdswggo1gy7" path="res://Terrain Assets/Fences/Metal_Fence_024.fbx" id="69_hgwyp"]
+[ext_resource type="PackedScene" uid="uid://cjqhr4dma74sm" path="res://Terrain Assets/Fences/Metal_Fence_025.fbx" id="70_n781a"]
+[ext_resource type="PackedScene" uid="uid://7ev20rj2bbms" path="res://Terrain Assets/Fences/Metal_Fence_038.fbx" id="71_a4x8m"]
+[ext_resource type="PackedScene" uid="uid://dj4ylbu8syi5d" path="res://Terrain Assets/Fences/Metal_Fence_039.fbx" id="72_igncn"]
+[ext_resource type="PackedScene" uid="uid://dvnss1scqdgrm" path="res://Terrain Assets/Fences/Plane_001.fbx" id="73_6imlu"]
+[ext_resource type="PackedScene" uid="uid://cbwo3ptj6dfwt" path="res://Terrain Assets/Fences/Plane_019.fbx" id="74_m7lvt"]
+[ext_resource type="PackedScene" uid="uid://2tsu1gt5mtt4" path="res://Terrain Assets/Fences/Plane_031.fbx" id="75_fx4br"]
+[ext_resource type="PackedScene" uid="uid://boj4gy0dabg5g" path="res://Terrain Assets/Fences/Safety_Barrier.fbx" id="76_67mdi"]
+[ext_resource type="PackedScene" uid="uid://vgm0gk76a67y" path="res://Terrain Assets/Fences/Safety_Barrier_001.fbx" id="77_547a1"]
+[ext_resource type="PackedScene" uid="uid://bb1m4m6cahtya" path="res://Terrain Assets/Fences/Safety_Barrier_002.fbx" id="78_m1ivi"]
+[ext_resource type="PackedScene" uid="uid://dc387oxfc3a8a" path="res://Terrain Assets/GLB format-Kenney Assets/cabin-fence.glb" id="79_u1kfw"]
+[ext_resource type="PackedScene" uid="uid://c2l6db8w5xxbc" path="res://Terrain Assets/GLB format-Kenney Assets/rocks-large.glb" id="80_hk3kr"]
+[ext_resource type="PackedScene" uid="uid://bxndb78t2hxv8" path="res://Terrain Assets/GLB format-Kenney Assets/rocks-medium.glb" id="81_kgebc"]
+[ext_resource type="PackedScene" uid="uid://c8c4golinwrhd" path="res://Terrain Assets/GLB format-Kenney Assets/rocks-small.glb" id="82_ecuvr"]
+[ext_resource type="PackedScene" uid="uid://h4uacuv32ad6" path="res://Terrain Assets/GLB format-Kenney Assets/tree-snow-a.glb" id="83_1gs1m"]
+[ext_resource type="PackedScene" uid="uid://cgrkwmq7gcd8" path="res://Terrain Assets/GLB format-Kenney Assets/tree-snow-b.glb" id="84_onbtm"]
+[ext_resource type="PackedScene" uid="uid://d7yo5orkj3il" path="res://Terrain Assets/GLB format-Kenney Assets/tree-snow-c.glb" id="85_rb43n"]
+[ext_resource type="PackedScene" uid="uid://b1erdkfmdlylf" path="res://Terrain Assets/GLB format-Kenney Assets/tree.glb" id="86_2jdx7"]
 
 [node name="3D Tiles" type="Node3D"]
 
-[node name="Hill_winter_001" parent="." instance=ExtResource("1_nk07w")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 82.2705, 558.676, 863.488)
+[node name="Metal_Fence" parent="." instance=ExtResource("1_3fibq")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 1526.99, 672.22, 1822.81)
 
-[node name="Hill_winter_003" parent="." instance=ExtResource("2_b3l84")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 791.135, 948.923, 1226.21)
+[node name="Barricade" parent="." instance=ExtResource("2_ifaaw")]
 
-[node name="Hill_winter_005" parent="." instance=ExtResource("3_l5xp4")]
-transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 1557.75, 1223.06, 1682.97)
+[node name="Barricades" parent="." instance=ExtResource("3_1g1ux")]
+
+[node name="Barricades_001" parent="." instance=ExtResource("4_kuje5")]
+
+[node name="Barricades_002" parent="." instance=ExtResource("5_jbrrv")]
+
+[node name="Barricades_003" parent="." instance=ExtResource("6_kjo7d")]
+
+[node name="Barricades_004" parent="." instance=ExtResource("7_onj0r")]
+
+[node name="Barricades_005" parent="." instance=ExtResource("8_vy5bv")]
+
+[node name="Barricades_006" parent="." instance=ExtResource("9_o4v63")]
+
+[node name="Barricades_007" parent="." instance=ExtResource("10_3c1oe")]
+
+[node name="Barricades_008" parent="." instance=ExtResource("11_i22nm")]
+
+[node name="Barricades_009" parent="." instance=ExtResource("12_bhavx")]
+
+[node name="Barricades_013" parent="." instance=ExtResource("13_1xk01")]
+
+[node name="Barricades_014" parent="." instance=ExtResource("14_3xd7g")]
+
+[node name="Barricades_016" parent="." instance=ExtResource("15_i0yx8")]
+
+[node name="Barricades_017" parent="." instance=ExtResource("16_jv7og")]
+
+[node name="Barricades_018" parent="." instance=ExtResource("17_u2n2s")]
+
+[node name="Barricades_019" parent="." instance=ExtResource("18_o1dar")]
+
+[node name="Barricades_020" parent="." instance=ExtResource("19_jx0qa")]
+
+[node name="Barricades_021" parent="." instance=ExtResource("20_usctd")]
+
+[node name="Barricades_023" parent="." instance=ExtResource("21_u5fcr")]
+
+[node name="Barricades_024" parent="." instance=ExtResource("22_d3jeo")]
+
+[node name="Barricades_031" parent="." instance=ExtResource("23_amfdw")]
+
+[node name="Barricades_033" parent="." instance=ExtResource("24_11ccc")]
+
+[node name="Barricades_034" parent="." instance=ExtResource("25_uhbwu")]
+
+[node name="Guard_rail_road_005" parent="." instance=ExtResource("26_fupk7")]
+
+[node name="Guard_rail_road_006" parent="." instance=ExtResource("27_x3ukv")]
+
+[node name="Guard_rail_road_007" parent="." instance=ExtResource("28_kti6a")]
+
+[node name="Guard_rail_road_008" parent="." instance=ExtResource("29_f4qwc")]
+
+[node name="Guard_rail_road_009" parent="." instance=ExtResource("30_80kre")]
+
+[node name="Guard_rail_road_010" parent="." instance=ExtResource("31_sa7te")]
+
+[node name="Guard_rail_road_011" parent="." instance=ExtResource("32_edxcv")]
+
+[node name="Guard_rail_road_012" parent="." instance=ExtResource("33_f1l7d")]
+
+[node name="Guard_rail_road_013" parent="." instance=ExtResource("34_nukoi")]
+
+[node name="Guard_rail_road_014" parent="." instance=ExtResource("35_d368m")]
+
+[node name="Guard_rail_road_rail" parent="." instance=ExtResource("36_orwul")]
+
+[node name="Guard_rail_road_rail_001" parent="." instance=ExtResource("37_kmdxi")]
+
+[node name="Guard_rail_road_rail_002" parent="." instance=ExtResource("38_jcxcl")]
+
+[node name="Guard_rail_road_rail_003" parent="." instance=ExtResource("39_3e4qh")]
+
+[node name="Guard_rail_road_rail_stand" parent="." instance=ExtResource("40_80k6s")]
+
+[node name="Guard_rail_road_rail_stand_002" parent="." instance=ExtResource("41_nbu0p")]
+
+[node name="Guard_rail_road_rail_stand_003" parent="." instance=ExtResource("42_4cwuq")]
+
+[node name="Metal_Barricade_001" parent="." instance=ExtResource("43_k0ut7")]
+
+[node name="Metal_Barricade_002" parent="." instance=ExtResource("44_8we2a")]
+
+[node name="Metal_Barricade_003" parent="." instance=ExtResource("45_yaeqn")]
+
+[node name="Metal_Fence2" parent="." instance=ExtResource("1_3fibq")]
+
+[node name="Metal_Fence_001" parent="." instance=ExtResource("46_3ekv2")]
+
+[node name="Metal_Fence_002" parent="." instance=ExtResource("47_kgwxw")]
+
+[node name="Metal_Fence_003" parent="." instance=ExtResource("48_iwwra")]
+
+[node name="Metal_Fence_004" parent="." instance=ExtResource("49_ildnw")]
+
+[node name="Metal_Fence_005" parent="." instance=ExtResource("50_w3kct")]
+
+[node name="Metal_Fence_006" parent="." instance=ExtResource("51_bnrsw")]
+
+[node name="Metal_Fence_007" parent="." instance=ExtResource("52_mvbkv")]
+
+[node name="Metal_Fence_008" parent="." instance=ExtResource("53_8pvpq")]
+
+[node name="Metal_Fence_009" parent="." instance=ExtResource("54_iw3ru")]
+
+[node name="Metal_Fence_010" parent="." instance=ExtResource("55_41bdk")]
+
+[node name="Metal_Fence_011" parent="." instance=ExtResource("56_1e0g2")]
+
+[node name="Metal_Fence_012" parent="." instance=ExtResource("57_e30se")]
+
+[node name="Metal_Fence_013" parent="." instance=ExtResource("58_ouvfu")]
+
+[node name="Metal_Fence_014" parent="." instance=ExtResource("59_2q8eg")]
+
+[node name="Metal_Fence_015" parent="." instance=ExtResource("60_y22a0")]
+
+[node name="Metal_Fence_016" parent="." instance=ExtResource("61_2u4sa")]
+
+[node name="Metal_Fence_017" parent="." instance=ExtResource("62_j83dd")]
+
+[node name="Metal_Fence_018" parent="." instance=ExtResource("63_65d78")]
+
+[node name="Metal_Fence_019" parent="." instance=ExtResource("64_mk3y5")]
+
+[node name="Metal_Fence_020" parent="." instance=ExtResource("65_xg0eg")]
+
+[node name="Metal_Fence_021" parent="." instance=ExtResource("66_6gv6q")]
+
+[node name="Metal_Fence_022" parent="." instance=ExtResource("67_7pgia")]
+
+[node name="Metal_Fence_023" parent="." instance=ExtResource("68_lsgip")]
+
+[node name="Metal_Fence_024" parent="." instance=ExtResource("69_hgwyp")]
+
+[node name="Metal_Fence_025" parent="." instance=ExtResource("70_n781a")]
+
+[node name="Metal_Fence_038" parent="." instance=ExtResource("71_a4x8m")]
+
+[node name="Metal_Fence_039" parent="." instance=ExtResource("72_igncn")]
+
+[node name="Plane_001" parent="." instance=ExtResource("73_6imlu")]
+
+[node name="Plane_019" parent="." instance=ExtResource("74_m7lvt")]
+
+[node name="Plane_031" parent="." instance=ExtResource("75_fx4br")]
+
+[node name="Safety_Barrier" parent="." instance=ExtResource("76_67mdi")]
+
+[node name="Safety_Barrier_001" parent="." instance=ExtResource("77_547a1")]
+
+[node name="Safety_Barrier_002" parent="." instance=ExtResource("78_m1ivi")]
+
+[node name="cabin-fence2" parent="." instance=ExtResource("79_u1kfw")]
+
+[node name="rocks-large2" parent="." instance=ExtResource("80_hk3kr")]
+
+[node name="rocks-medium2" parent="." instance=ExtResource("81_kgebc")]
+
+[node name="rocks-small2" parent="." instance=ExtResource("82_ecuvr")]
+
+[node name="tree-snow-a2" parent="." instance=ExtResource("83_1gs1m")]
+
+[node name="tree-snow-b2" parent="." instance=ExtResource("84_onbtm")]
+
+[node name="tree-snow-c2" parent="." instance=ExtResource("85_rb43n")]
+
+[node name="tree2" parent="." instance=ExtResource("86_2jdx7")]

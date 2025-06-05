@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwhhwui6q8xa4"]
+[gd_scene load_steps=8 format=3 uid="uid://cwhhwui6q8xa4"]
 
 [ext_resource type="Script" uid="uid://h3d5ks2mbjte" path="res://addons/zylann.hterrain/hterrain.gd" id="1_tlwt5"]
 [ext_resource type="Resource" uid="uid://biu23ojd42dke" path="res://Terrain Assets/GLB format-Kenney Assets/data.hterrain" id="2_aqk2v"]
@@ -10,6 +10,9 @@
 script = ExtResource("3_036b0")
 mode = 0
 textures = [[], []]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
+size = Vector3(542.53, 10, 1.045)
 
 [node name="World" type="Node3D"]
 
@@ -45,3 +48,9 @@ mesh_library = ExtResource("4_aqk2v")
 
 [node name="cabin-fence2" parent="." instance=ExtResource("5_036b0")]
 transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 12957.6, 15790.5, 8964.42)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7491.36, 17568.2, 7596.48)
+shape = SubResource("BoxShape3D_036b0")

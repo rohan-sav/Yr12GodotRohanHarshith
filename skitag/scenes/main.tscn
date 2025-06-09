@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c4mgssr54007v"]
 
-[ext_resource type="PackedScene" uid="uid://cslarprd0aur" path="res://scenes/player.tscn" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cwsdk3j7ol2pb" path="res://Dark/texture_05.png" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="3_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -44,9 +44,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jyhfs")
-
-[node name="Player" parent="." instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -291.837, 669.176, 2.88392)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.05984, 0, 0, 0, 1.05984, 0, 6.63018, 0)
@@ -99,3 +96,7 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 smooth_faces = true
+
+[node name="ProtoController" parent="." instance=ExtResource("3_sugp2")]
+can_sprint = true
+sprint_speed = 20.0

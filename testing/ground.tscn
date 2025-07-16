@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://rqxx2thbqnse"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kiels"]
+size = Vector3(12, 0.3, 40)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lv0v5"]
+points = PackedVector3Array(-6.31622, -0.46746, -20.3095, 6, 0.148471, 19.0947, 6.37971, -0.46746, 20.3095, -6.31622, -0.46746, 20.3095, 6.37971, -0.46746, -20.3095, -5.96708, 0.15, -19.1925, -5.96708, 0.15, 19.1925, 6, 0.148471, -19.0947)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5yggv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ughoc"]
+
+[sub_resource type="Curve3D" id="Curve3D_lv0v5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0356757, 1.28212, -55.0234, 5.964, 0.642477, 2.55585, -5.964, -0.642477, -2.55585, -5.31225, -2.19274, -74.0751, 0, 0, 0, 0, 0, 0, -24.565, -3.61186, -75.2348, 4.14166, 0, -5.964, -4.14166, 0, 5.964, -43.2501, -4.41603, -68.7737, 0, 0, 0, 0, 0, 0, -42.8481, -6.57224, -47.2078, -3.28418, -1.84486, -2.3652, 3.28418, 1.84486, 2.3652, -38.3832, -13.1548, -23.2194, 0, 0, 0, 0, 0, 0, -15.5266, -10.4927, -29.4889, 0, 0, 0, 0, 0, 0, 4.2448, -14.17, -32.67, -7.455, 0, 1.988, 7.455, 0, -1.988, 32.0698, -22.6081, -36.3159, 0, 0, 0, 0, 0, 0, 64.4995, -26.2354, -55.1766),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[node name="Ground3" type="Node3D"]
+
+[node name="Ground2" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
+transform = Transform3D(1, 0, 0, 0, 0.957687, 0.287812, 0, -0.287812, 0.957687, 0, -10.9004, -29.8325)
+mesh = SubResource("BoxMesh_kiels")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground2"]
+transform = Transform3D(1, 0, 0, 0, 0.957687, 0.287812, 0, -0.287812, 0.957687, 0, -10.9004, -29.8325)
+shape = SubResource("ConvexPolygonShape3D_lv0v5")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(12, 0, 0, 0, 0.28127, 10.4341, 0, -0.104341, 28.127, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_5yggv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_ughoc")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.24591, 3.50784)
+curve = SubResource("Curve3D_lv0v5")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.953499)
+use_collision = true
+polygon = PackedVector2Array(-6.00115, 0.00300974, -6.00522, 0.190455, 6.00283, 0.209988, 6.01029, 0.00850043)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false

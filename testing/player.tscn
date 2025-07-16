@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://dquxl3a36xi7l"]
+
+[ext_resource type="Script" uid="uid://cu1eumghab2q5" path="res://PlayerMovement.gd" id="1_4flbx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_com67"]
+friction = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_pj24t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npseb"]
+albedo_color = Color(0, 0.52549, 0.752941, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6w0w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1fpj5"]
+material = SubResource("StandardMaterial3D_4flbx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mibbw"]
+albedo_color = Color(0.85098, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7uhgj"]
+size = Vector3(0.566636, 0.884633, 1)
+
+[node name="Player" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_com67")
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_4flbx")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.382454, 0, 0, 0, 0.817106, 0.107285, 0, -0.230325, 0.380609, 0, 0, 0)
+mesh = SubResource("BoxMesh_pj24t")
+surface_material_override/0 = SubResource("StandardMaterial3D_npseb")
+
+[node name="Ski" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.152817, 0, 0, 0, 0.102173, 0, 0, 0, 1.26492, 0.2, -0.4, 0)
+mesh = SubResource("BoxMesh_pj24t")
+surface_material_override/0 = SubResource("StandardMaterial3D_k6w0w")
+
+[node name="Ski2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.152817, 0, 0, 0, 0.102173, 0, 0, 0, 1.26492, -0.2, -0.4, 0)
+mesh = SubResource("BoxMesh_pj24t")
+surface_material_override/0 = SubResource("StandardMaterial3D_k6w0w")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.617054, 0, 0, 0, 0.645448, 0, 0, 0, 0.617054, 0, 0.555963, -0.19505)
+mesh = SubResource("SphereMesh_1fpj5")
+surface_material_override/0 = SubResource("StandardMaterial3D_mibbw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7uhgj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.889009, 0.457889, 0, -0.457889, 0.889009, 0, 3.28269, 4.68929)
+current = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnaq28yup23gs"]
+
+[ext_resource type="PackedScene" uid="uid://ksyew6u6dtij" path="res://Collision.tscn" id="2_a0tk4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Main" parent="." instance=ExtResource("2_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.624281, 0.342614, 5.91577)

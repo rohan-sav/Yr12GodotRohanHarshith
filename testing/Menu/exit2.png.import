@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://briwktjf7n0nc"
+path="res://.godot/imported/exit2.png-60e652200b12bffb9d23caf02fa1bc5a.res"
+
+[deps]
+
+source_file="res://Menu/exit2.png"
+dest_files=["res://.godot/imported/exit2.png-60e652200b12bffb9d23caf02fa1bc5a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

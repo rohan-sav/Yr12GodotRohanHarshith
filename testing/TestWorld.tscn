@@ -37,11 +37,14 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999393, 0.0348472, 0, -0.0348472, 0.999393, 0, 331.364, 0)
+visible = false
 curve = SubResource("Curve3D_7c1qw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.998369, -0.0313521, 0.0470405, 3.72517e-09, 0.832113, 0.554599, -0.0565295, -0.553711, 0.830784, 10.1982, 0, -311.893)
+transform = Transform3D(0.998368, -0.0313529, 0.0470413, -1.86258e-09, 0.83211, 0.554603, -0.0565305, -0.553715, 0.830781, 10.1982, 0, -311.893)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(12, 0, 0, 2.98023e-08, 12, 4.76837e-07, 0, 4.76837e-07, 12, -0.0177727, 7.32867, 5.2617)
+visible = false
 mesh = SubResource("BoxMesh_i7llj")

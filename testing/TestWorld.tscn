@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch10bessjfv01"]
+[gd_scene load_steps=7 format=3 uid="uid://ch10bessjfv01"]
 
 [ext_resource type="PackedScene" uid="uid://bsr0c3kqef8tc" path="res://Models/skitrackimport.glb" id="1_7c1qw"]
+[ext_resource type="Script" uid="uid://c1nmdj5j6n3eg" path="res://rigid_body_3d.gd" id="1_i7llj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i7llj"]
 radius = 5.0
@@ -20,8 +21,13 @@ point_count = 13
 
 [node name="Node3D" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("path")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28712, 362.662, -287.606)
+script = ExtResource("1_i7llj")
+path = NodePath("../Path3D")
+speed = null
+target_offset = null
+lookahead = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_i7llj")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch10bessjfv01"]
+[gd_scene load_steps=6 format=3 uid="uid://ch10bessjfv01"]
 
 [ext_resource type="PackedScene" uid="uid://bsr0c3kqef8tc" path="res://Models/skitrackimport.glb" id="1_7c1qw"]
 [ext_resource type="Script" uid="uid://c1nmdj5j6n3eg" path="res://rigid_body_3d.gd" id="1_i7llj"]
+[ext_resource type="PackedScene" uid="uid://mihwpb02li17" path="res://Checkpoint.tscn" id="3_74u7v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i7llj"]
 radius = 5.0
@@ -10,21 +11,12 @@ radius = 5.0
 radius = 5.0
 height = 10.0
 
-[sub_resource type="Curve3D" id="Curve3D_7c1qw"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.1982, 0, -311.893, 0, 0, 0, 0, 0, 0, 7.1986, -35.3644, -364.868, 0, 0, 0, 0, 0, 0, 4.94894, -61.1563, -431.008, 0, 0, 0, 0, 0, 0, 4.94894, -81.0265, -484.193, 0, 0, 0, 0, 0, 0, 8.69839, -88.9436, -531.712, 0, 0, 0, 0, 0, 0, 22.2281, -88.4764, -578.189, 0, 0, 0, 0, 0, 0, 45.77, -75.4588, -587.954, 0, 0, 0, 0, 0, 0, 67.9397, -85.906, -570.601, 0, 0, 0, 0, 0, 0, 82.9374, -94.3055, -509.361, 0, 0, 0, 0, 0, 0, 79.0978, -108.099, -479.078, 0, 0, 0, 0, 0, 0, 85.1871, -117.248, -455.107, 0, 0, 0, 0, 0, 0, 85.1871, -120.416, -415.275, 0, 0, 0, 0, 0, 0, 85.1871, -124.65, -287.463),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 13
-
-[sub_resource type="BoxMesh" id="BoxMesh_i7llj"]
-
 [node name="Node3D" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("path")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("checkpoint_system")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28712, 362.662, -287.606)
 script = ExtResource("1_i7llj")
-path = NodePath("../Path3D")
+checkpoint_system = NodePath("../CheckpointSystem")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_i7llj")
@@ -32,22 +24,157 @@ shape = SubResource("SphereShape3D_i7llj")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_74u7v")
 
+[node name="RigidBody3D2" type="RigidBody3D" parent="." node_paths=PackedStringArray("checkpoint_system")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.71, 362.662, -287.606)
+script = ExtResource("1_i7llj")
+checkpoint_system = NodePath("../CheckpointSystem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+shape = SubResource("SphereShape3D_i7llj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+mesh = SubResource("SphereMesh_74u7v")
+
 [node name="skitrackimport" parent="." instance=ExtResource("1_7c1qw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.2138, 1.19209e-07, -1423.5)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.999999, 0.000800811, -0.00114372, 0.000439115, 0.957983, 0.286825, 0.00132536, 0.286825, -0.957982, 65.8743, 332.123, -671.702)
+transform = Transform3D(-0.301287, -0.273371, 0.913507, 0.000439125, 0.957983, 0.286826, -0.953533, 0.0868181, -0.288508, 221.268, 254.835, -491.519)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
 
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999393, 0.0348472, 0, -0.0348472, 0.999393, 0, 331.092, 0)
-curve = SubResource("Curve3D_7c1qw")
+[node name="CheckpointSystem" type="Node3D" parent="."]
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.998368, -0.0313529, 0.0470413, -1.86258e-09, 0.83211, 0.554603, -0.0565305, -0.553715, 0.830781, 10.1982, 0, -311.893)
+[node name="Checkpoint" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1887, 298.505, -344.236)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
-transform = Transform3D(12, 0, 0, 2.98023e-08, 12, 4.76837e-07, 0, 4.76837e-07, 12, -0.0177727, 7.32867, 5.2617)
-visible = false
-mesh = SubResource("BoxMesh_i7llj")
+[node name="Checkpoint2" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1887, 227.394, -540.653)
+
+[node name="Checkpoint3" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(0.0794856, 0, -0.996836, 0, 1, 0, 0.996836, 0, 0.0794856, 45.1831, 229.305, -574.606)
+
+[node name="Checkpoint4" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.996998, 0, -0.0774324, 0, 1, 0, 0.0774324, 0, -0.996998, 83.4877, 226.983, -521.525)
+
+[node name="Checkpoint5" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.996998, 0, -0.0774324, 0, 1, 0, 0.0774324, 0, -0.996998, 77.1897, 201.154, -393.562)
+
+[node name="Checkpoint6" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.996998, 0, -0.0774324, -0.0186329, 0.970616, 0.239912, 0.0751571, 0.240635, -0.967701, 77.1897, 201.703, -280.391)
+
+[node name="Checkpoint7" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.996998, -1.80791e-09, -0.0774324, -0.0346348, 0.894389, 0.445948, 0.0692547, 0.447291, -0.891703, 77.0006, 152.442, -196.607)
+
+[node name="Checkpoint8" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.996998, -1.80719e-09, -0.0774324, 0.0108715, 0.990095, -0.139978, 0.0766655, -0.1404, -0.987122, 90.6021, 152.442, -101.813)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint8" index="0"]
+transform = Transform3D(0.99999, 0.00444255, 0.000127904, -0.00444248, 0.998353, 0.0571999, 0.000127159, -0.0572001, 0.998363, -3.90867, -3.47688, 0.491539)
+
+[node name="Checkpoint9" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.99967, 0.0237961, -0.00970099, 0.0256652, 0.943472, -0.330458, 0.00128897, -0.330598, -0.943771, 90.6111, 170.312, -36.2352)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint9" index="0"]
+transform = Transform3D(0.999977, 0.00546131, 0.00412553, -0.00622379, 0.976337, 0.216164, -0.00284665, -0.216185, 0.976348, -3.90867, -3.47688, 0.491543)
+
+[node name="Checkpoint10" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.99967, 0.0237961, -0.00970099, 0.0251785, 0.831508, -0.554942, -0.00513904, -0.555003, -0.831832, 90.6111, 173.813, 4.96703)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint10" index="0"]
+transform = Transform3D(0.999977, 0.00546131, 0.00412553, -0.00622379, 0.976337, 0.216164, -0.00284665, -0.216185, 0.976348, -3.90867, -3.47688, 0.491543)
+
+[node name="Checkpoint11" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.99967, 0.0237961, -0.00970099, 0.0219782, 0.98734, 0.15709, 0.0133163, 0.156825, -0.987537, 90.6111, 166.47, 46.7642)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint11" index="0"]
+transform = Transform3D(0.999977, 0.00546131, 0.00412553, -0.00622379, 0.976337, 0.216164, -0.00284665, -0.216185, 0.976348, -3.90867, -3.47688, 0.491543)
+
+[node name="Checkpoint12" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.964142, -0.196677, 0.17818, -0.170444, 0.973526, 0.152302, -0.203417, 0.116471, -0.97214, 114.21, 138.875, 89.7705)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint12" index="0"]
+transform = Transform3D(0.999977, 0.00546131, 0.00412553, -0.00622379, 0.976337, 0.216164, -0.00284665, -0.216185, 0.976348, -3.90867, -3.47688, 0.491543)
+
+[node name="Checkpoint13" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.997139, 0.0476474, 0.0586884, 0.0163116, 0.893679, -0.44841, -0.0738142, -0.44617, -0.891899, 64.1115, 141.171, 157.794)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint13" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint14" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.997139, 0.0476474, 0.0586884, 0.0616884, 0.961607, 0.26741, -0.0436939, 0.270265, -0.961794, 63.2431, 109.367, 255.329)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint14" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint15" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.999764, 0.0188601, 0.010775, 0.0173478, 0.991824, -0.126428, -0.0130713, -0.126211, -0.991917, 63.2431, 87.9258, 350.191)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint15" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint16" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.998744, 0.0386346, 0.0318901, 0.0306981, 0.975051, -0.219851, -0.0395883, -0.218597, -0.975012, 63.2431, 84.5939, 451.82)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint16" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint17" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.998744, 0.0386346, 0.0318901, 0.0306981, 0.975051, -0.219851, -0.0395883, -0.218597, -0.975012, 63.2431, 84.5939, 560.618)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint17" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint18" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.998744, 0.0386346, 0.0318901, 0.0500907, 0.779359, 0.624572, -0.00072371, 0.625386, -0.780316, 63.2431, 60.0992, 664.099)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint18" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint19" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.943637, -0.305624, -0.127055, -0.327601, 0.917163, 0.226914, 0.0471799, 0.255748, -0.965592, 61.8115, -47.9788, 698.868)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint19" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint20" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(-0.89119, -0.379725, 0.248173, -0.327601, 0.917163, 0.226914, -0.31378, 0.120921, -0.941764, 53.2574, -81.0042, 779.128)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint20" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint21" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(0.324936, 0.402094, 0.856, -0.646024, 0.755407, -0.109612, -0.690703, -0.51738, 0.505221, -12.2677, -77.1408, 822.639)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint21" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[node name="Checkpoint22" parent="CheckpointSystem" instance=ExtResource("3_74u7v")]
+transform = Transform3D(0.817076, 0.13138, -0.561361, -0.116871, 0.991218, 0.0618735, 0.56456, 0.0150514, 0.825254, -12.2677, -97.6816, 755.245)
+
+[node name="CollisionShape3D" parent="CheckpointSystem/Checkpoint22" index="0"]
+transform = Transform3D(0.999976, 0.00546132, 0.00412579, -0.00622384, 0.976337, 0.216164, -0.00284693, -0.216185, 0.97635, -2.05453, -3.4884, 0.486267)
+
+[editable path="CheckpointSystem/Checkpoint"]
+[editable path="CheckpointSystem/Checkpoint2"]
+[editable path="CheckpointSystem/Checkpoint3"]
+[editable path="CheckpointSystem/Checkpoint4"]
+[editable path="CheckpointSystem/Checkpoint5"]
+[editable path="CheckpointSystem/Checkpoint6"]
+[editable path="CheckpointSystem/Checkpoint7"]
+[editable path="CheckpointSystem/Checkpoint8"]
+[editable path="CheckpointSystem/Checkpoint9"]
+[editable path="CheckpointSystem/Checkpoint10"]
+[editable path="CheckpointSystem/Checkpoint11"]
+[editable path="CheckpointSystem/Checkpoint12"]
+[editable path="CheckpointSystem/Checkpoint13"]
+[editable path="CheckpointSystem/Checkpoint14"]
+[editable path="CheckpointSystem/Checkpoint15"]
+[editable path="CheckpointSystem/Checkpoint16"]
+[editable path="CheckpointSystem/Checkpoint17"]
+[editable path="CheckpointSystem/Checkpoint18"]
+[editable path="CheckpointSystem/Checkpoint19"]
+[editable path="CheckpointSystem/Checkpoint20"]
+[editable path="CheckpointSystem/Checkpoint21"]
+[editable path="CheckpointSystem/Checkpoint22"]

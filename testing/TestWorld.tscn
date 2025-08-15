@@ -39,7 +39,7 @@ mesh = SubResource("SphereMesh_74u7v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.2138, 1.19209e-07, -1423.5)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.89698, 0.358381, 0.258826, -0.430076, 0.842901, 0.323346, -0.102284, -0.401349, 0.910196, -80.0581, 30.4593, 984.92)
+transform = Transform3D(0.475311, -0.093093, 0.874879, -0.430076, 0.842901, 0.323345, -0.767538, -0.529954, 0.360603, 181.549, 326.306, -323.089)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
 

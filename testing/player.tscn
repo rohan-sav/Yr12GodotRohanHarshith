@@ -29,6 +29,7 @@ physics_material_override = SubResource("PhysicsMaterial_com67")
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_4flbx")
+move_speed = 50.0
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.382454, 0, 0, 0, 0.817106, 0.107285, 0, -0.230325, 0.380609, 0, 0, 0)

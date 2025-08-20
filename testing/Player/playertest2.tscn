@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkum8eg2s08qa"]
+
+[ext_resource type="PackedScene" uid="uid://ce1nfmtlp08uf" path="res://Models/skiing_lady.glb" id="1_jwhav"]
+
+[node name="player" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_jwhav")]
+
+[node name="Camera3D" type="Camera3D" parent="Sketchfab_Scene"]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.64382e-08, 0.908996, 0.416804, 7.9467e-08, 0.416804, -0.908996, 0.482039, 1.30827, -1.51035)
+current = true

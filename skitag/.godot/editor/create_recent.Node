@@ -1,0 +1,9 @@
+CollisionShape3D
+MeshInstance3D
+StaticBody3D
+Label
+Node2D
+Node
+SubViewport
+SubViewportContainer
+Node3D

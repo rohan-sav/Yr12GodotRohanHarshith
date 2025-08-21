@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdge550ondf27"]
+
+[ext_resource type="Script" uid="uid://cqblcsdex28e8" path="res://Player/PlayerControllerRB.gd" id="1_ubyy0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ivc55"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vf5y"]
+albedo_color = Color(0, 0.52549, 0.752941, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axnn4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bn6h6"]
+material = SubResource("StandardMaterial3D_4flbx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvjkd"]
+albedo_color = Color(0.85098, 0, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jpdaj"]
+
+[node name="PlayerController" type="Node3D"]
+script = ExtResource("1_ubyy0")
+turn_speed = 0.01
+camera_sensitivity = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.855202, 0.518295, 0, -0.518295, 0.855202, 0, 6.14044, 7.43205)
+current = true
+
+[node name="Skier Visual Body" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Skier Visual Body"]
+transform = Transform3D(2, 0, 0, 0, 4.27828, 0.561062, 0, -1.20596, 1.99044, 0, -0.136244, 0)
+mesh = SubResource("BoxMesh_ivc55")
+skeleton = NodePath("../../CharacterBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_7vf5y")
+
+[node name="Ski2" type="MeshInstance3D" parent="Skier Visual Body"]
+transform = Transform3D(0.501, 0, 0, 0, 0.501, 0, 0, 0, 4.178, -1.00791, -2.24611, 0)
+mesh = SubResource("BoxMesh_ivc55")
+skeleton = NodePath("../../CharacterBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_axnn4")
+
+[node name="Ski3" type="MeshInstance3D" parent="Skier Visual Body"]
+transform = Transform3D(0.501, 0, 0, 0, 0.501, 0, 0, 0, 4.178, 0.9783, -2.24611, 0)
+mesh = SubResource("BoxMesh_ivc55")
+skeleton = NodePath("../../CharacterBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_axnn4")
+
+[node name="Head" type="MeshInstance3D" parent="Skier Visual Body"]
+transform = Transform3D(2.83, 0, 0, 0, 2.83, 0, 0, 0, 2.83, 0, 2.25687, -0.519632)
+mesh = SubResource("SphereMesh_bn6h6")
+skeleton = NodePath("../../CharacterBody3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_vvjkd")
+
+[node name="RayCast3D" type="RayCast3D" parent="Skier Visual Body"]
+
+[node name="CharacterBody3D" type="RigidBody3D" parent="."]
+mass = 100.0
+gravity_scale = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.0221385, 0.00274658)
+shape = SubResource("SphereShape3D_jpdaj")

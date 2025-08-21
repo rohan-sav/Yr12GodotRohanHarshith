@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch10bessjfv01"]
+[gd_scene load_steps=10 format=3 uid="uid://8j2xfx7njh8j"]
 
 [ext_resource type="PackedScene" uid="uid://bsr0c3kqef8tc" path="res://Models/skitrackimport.glb" id="1_7c1qw"]
-[ext_resource type="PackedScene" uid="uid://gwl6oqlu4rb1" path="res://Player/player2.tscn" id="1_cjeqb"]
-[ext_resource type="Script" uid="uid://c1nmdj5j6n3eg" path="res://rigid_body_3d.gd" id="1_i7llj"]
+[ext_resource type="PackedScene" uid="uid://cdge550ondf27" path="res://Player/RigidBodyPlayer.tscn" id="1_cjeqb"]
+[ext_resource type="Script" path="res://rigid_body_3d.gd" id="1_i7llj"]
 [ext_resource type="PackedScene" uid="uid://mihwpb02li17" path="res://Checkpoint.tscn" id="3_74u7v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cjeqb"]
@@ -27,8 +27,11 @@ height = 10.0
 
 [node name="Node3D" type="Node3D"]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_cjeqb")]
+[node name="PlayerController" parent="." instance=ExtResource("1_cjeqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 362.144, -285.349)
+move_force = 2000.0
+constant_forward_force = 500.0
+turn_speed = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8re3b")

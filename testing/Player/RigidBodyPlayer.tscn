@@ -20,7 +20,7 @@ material = SubResource("StandardMaterial3D_4flbx")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvjkd"]
 albedo_color = Color(0.85098, 0, 1, 1)
 
-[node name="PlayerController" type="CharacterBody3D"]
+[node name="PlayerController" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_ubyy0")
 turn_speed = 0.01
 camera_sensitivity = 1.0

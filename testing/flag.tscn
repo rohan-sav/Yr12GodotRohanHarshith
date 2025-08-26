@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=4 uid="uid://cqwdc8mn61pn7"]
+
+[ext_resource type="Script" uid="uid://drufixtjs2mtb" path="res://flag.gd" id="1_nt20n"]
+[ext_resource type="Texture2D" uid="uid://bbrbhhp1ak87c" path="res://red_flag_0.png" id="2_m7swi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5u5qb"]
+resource_name = "material_0"
+cull_mode = 2
+albedo_texture = ExtResource("2_m7swi")
+roughness = 0.6
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w1kkq"]
+_surfaces = [{
+"aabb": AABB(-0.017458, -0.015119, 0.005401, 0.617458, 0.030238, 1.9946),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIABwAIAAUABgAFAAgABgADAAUAAwAHAAUABAAGAAgAAwAEAAcABAAIAAcA"),
+"lods": [0.0202007, PackedByteArray("AAABAAIAAwAEAAUABAAGAAUABgADAAUABgAFAAUA")],
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("////f4ziAAA8B/9/+cgAADwH/38e/AAAAAD/fwAAAADbCv//AAAAAAAA/3///wAA2woAAAAAAADbCv////8AANsKAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vwgvr"]
+resource_name = "Sketchfab_Scene_Object_0"
+_surfaces = [{
+"aabb": AABB(-0.017458, -0.015119, 0.005401, 0.617458, 0.030238, 1.9946),
+"attribute_data": PackedByteArray("VilJP5HD3wuRw7JyQtZOjaySTo1C1q/yFk9OjYALr/KAC06NDfyIsSDciLEX7C7NrJKv8hZPr/I="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIACQAKAAsAAwAMAAUAAwAEAAwABAANAAwABAAGAA0ABgAHAA0ABgAIAAcA"),
+"lods": [0.0202007, PackedByteArray("AAABAAIAAwAEAAUABAAGAAUABgAHAAUABgAIAAcA")],
+"material": SubResource("StandardMaterial3D_5u5qb"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("////f4zi//88B/9/+cj//zwH/38e/P//AAD/fwAAqirbCv//AAD/DgAA/3///6oq2woAAAAARD0AAP9///+qKgAA/38AAKoq2wr//////z/bCgAA////PwAA/3////8/2wr//////w7bCgAA//9EPf9//z//f/8//3//P1RVqqpwOB8PVFWqqlQWVlNUVaqqVFWqqv///////////////3A4Hw9UFlZT")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w1kkq")
+
+[node name="Flag" type="Node3D" groups=["flag"]]
+script = ExtResource("1_nt20n")
+
+[node name="Flag_Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+mesh = SubResource("ArrayMesh_vwgvr")
+skeleton = NodePath("")

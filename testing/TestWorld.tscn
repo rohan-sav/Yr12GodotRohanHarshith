@@ -29,9 +29,11 @@ height = 10.0
 
 [node name="PlayerController" parent="." instance=ExtResource("1_cjeqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 362.144, -285.349)
-move_force = 2000.0
-constant_forward_force = 500.0
+move_speed = 50.0
+acceleration = 50.0
+deceleration = 1.0
 turn_speed = 2.0
+ground_stick_force = 5000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8re3b")

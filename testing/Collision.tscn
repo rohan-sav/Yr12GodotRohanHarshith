@@ -14,6 +14,7 @@ background_color = Color(0.419608, 0.823529, 0.960784, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_kiels")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.23894, 13.2187)
+move_speed = 2.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.594444, -0.717261, 0.363557, 0, 0.452108, 0.891963, -0.804137, -0.530222, 0.268753, 0, 5.06166, 0)

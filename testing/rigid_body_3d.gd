@@ -4,10 +4,15 @@ extends RigidBody3D
 @export var target_offset: float = 0.0
 @export var lookahead: float = 3.0
 @export var checkpoint_system: Node3D
+@export var visual_body_height_offset: float = 0.5  # Height above ground
+
+@onready var skier_visual_body: Node3D = $"Bot Visual Body"
+@onready var ground_raycast: RayCast3D = $"Bot Visual Body/RayCast3D"
 
 var checkpoints: Array = []
 var current_checkpoint_index: int = 0
 var current_checkpoint: Node3D
+var visual_body_rotation: float = 0.0
 
 func _ready():
 	if checkpoint_system:
@@ -19,6 +24,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if current_checkpoint:
 		move_towards_checkpoint(delta)
+		update_visual_body_position()
+		align_visual_body_to_surface()
 
 func move_towards_checkpoint(delta: float):
 	# Calculate direction to checkpoint
@@ -90,3 +97,58 @@ func get_distance_to_checkpoint() -> float:
 func _on_area_3d_body_entered(body: Node3D):
 	if body == self:
 		advance_to_next_checkpoint()
+
+func update_visual_body_position():
+	# Only copy X and Z coordinates from RigidBody3D, maintain independent Y
+	var visual_pos = skier_visual_body.global_position
+	visual_pos.x = global_position.x
+	visual_pos.z = global_position.z
+	# Keep the visual body's current Y position - it will be updated by ground detection
+	skier_visual_body.global_position = visual_pos
+
+func align_visual_body_to_surface():
+	# Cast ray from above the visual body position to find ground
+	var raycast_start = Vector3(skier_visual_body.global_position.x, 
+								skier_visual_body.global_position.y + 10.0, 
+								skier_visual_body.global_position.z)
+	var raycast_end = Vector3(skier_visual_body.global_position.x, 
+							  skier_visual_body.global_position.y - 10.0, 
+							  skier_visual_body.global_position.z)
+	
+	ground_raycast.global_position = raycast_start
+	ground_raycast.target_position = Vector3(0, -20.0, 0)  # Cast downward
+	ground_raycast.force_raycast_update()
+	
+	if ground_raycast.is_colliding():
+		var hit_point = ground_raycast.get_collision_point()
+		var surface_normal = ground_raycast.get_collision_normal()
+		
+		# Position visual body at ground level plus offset
+		var visual_pos = skier_visual_body.global_position
+		visual_pos.y = hit_point.y + visual_body_height_offset
+		skier_visual_body.global_position = visual_pos
+		
+		# Calculate forward direction based on RigidBody3D movement direction
+		var movement_direction = Vector3.ZERO
+		if linear_velocity.length() > 0.1:
+			movement_direction = linear_velocity.normalized()
+		else:
+			# Fallback to transform forward when not moving
+			movement_direction = -global_transform.basis.z
+		
+		# Project movement direction onto the surface plane
+		var forward = (movement_direction - movement_direction.dot(surface_normal) * surface_normal).normalized()
+		var right = forward.cross(surface_normal).normalized()
+		
+		# Create basis that aligns with surface normal but faces movement direction
+		skier_visual_body.transform.basis = Basis(right, surface_normal, -forward)
+	else:
+		# No ground found, keep visual body upright and facing movement direction
+		var movement_direction = Vector3.ZERO
+		if linear_velocity.length() > 0.1:
+			movement_direction = linear_velocity.normalized()
+		else:
+			movement_direction = -global_transform.basis.z
+		
+		var y_rotation = atan2(movement_direction.x, movement_direction.z)
+		skier_visual_body.transform.basis = Basis(Vector3.UP, y_rotation)

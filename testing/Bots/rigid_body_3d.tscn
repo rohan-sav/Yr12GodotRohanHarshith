@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://jcinulhl885d"]
+
+[ext_resource type="Script" uid="uid://c1nmdj5j6n3eg" path="res://rigid_body_3d.gd" id="1_iwt7d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i7llj"]
+radius = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_74u7v"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_iwt7d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yhi8"]
+albedo_color = Color(0, 0.52549, 0.752941, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo2rr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwt7d"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g16ru"]
+material = SubResource("StandardMaterial3D_iwt7d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu6j2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_iwt7d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 0, 0)
+shape = SubResource("SphereShape3D_i7llj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_74u7v")
+
+[node name="Bot Visual Body" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Bot Visual Body"]
+transform = Transform3D(2, 0, 0, 0, 4.27828, 0.561062, 0, -1.20596, 1.99044, 0, -0.136244, 0)
+mesh = SubResource("BoxMesh_iwt7d")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6yhi8")
+
+[node name="Ski2" type="MeshInstance3D" parent="Bot Visual Body"]
+transform = Transform3D(0.501, 0, 0, 0, 0.501, 0, 0, 0, 4.178, -1.00791, -2.24611, 0)
+mesh = SubResource("BoxMesh_iwt7d")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_fo2rr")
+
+[node name="Ski3" type="MeshInstance3D" parent="Bot Visual Body"]
+transform = Transform3D(0.501, 0, 0, 0, 0.501, 0, 0, 0, 4.178, 0.9783, -2.24611, 0)
+mesh = SubResource("BoxMesh_iwt7d")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_fo2rr")
+
+[node name="Head" type="MeshInstance3D" parent="Bot Visual Body"]
+transform = Transform3D(2.83, 0, 0, 0, 2.83, 0, 0, 0, 2.83, 0, 2.25687, -0.519632)
+mesh = SubResource("SphereMesh_g16ru")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_fu6j2")
+
+[node name="RayCast3D" type="RayCast3D" parent="Bot Visual Body"]
+target_position = Vector3(0, -4.34, 0)

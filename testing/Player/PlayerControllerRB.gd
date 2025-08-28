@@ -27,7 +27,11 @@ var camera_yaw: float = 0.0
 var camera_pitch: float = -20.0
 
 func _ready():
-	# Set up ground raycast if it doesn't exist
+	print("CharacterBody3D script starting...")
+	var area = get_node_or_null("Area3D")
+	if area:
+		area.body_entered.connect(_on_area_entered)
+		
 	if not ground_raycast:
 		ground_raycast = RayCast3D.new()
 		ground_raycast.name = "GroundRaycast"
@@ -38,7 +42,28 @@ func _ready():
 	
 	# Capture mouse for free look camera
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
+func _on_area_entered(body):
+	print("Collision detected with: ", body.name)
+	
+	if body.name == "RigidBody3D" or body.name == "RigidBody3D2":
+		print("It's a bot!")
+		var flag = get_tree().get_first_node_in_group("flag")
+		if flag and flag.current_holder:
+			print("Current holder: ", flag.current_holder.name)
+			
+			# Check if player currently has the flag
+			var player = get_tree().get_first_node_in_group("player")
+			if flag.current_holder == player:
+				print("Player has flag, transferring to bot")
+				flag.transfer_to(body)
+			# Check if this bot has the flag
+			elif flag.current_holder == body:
+				print("Bot has flag, transferring to player")
+				flag.transfer_to(player)
+			else:
+				print("Someone else has the flag, no transfer")
+			
 func _input(event):
 	# Free look mouse control for camera
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

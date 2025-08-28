@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdge550ondf27"]
+[gd_scene load_steps=10 format=3 uid="uid://cdge550ondf27"]
 
 [ext_resource type="Script" uid="uid://cqblcsdex28e8" path="res://Player/PlayerControllerRB.gd" id="1_ubyy0"]
 
@@ -11,14 +11,17 @@ albedo_color = Color(0, 0.52549, 0.752941, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axnn4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubyy0"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_bn6h6"]
-material = SubResource("StandardMaterial3D_4flbx")
+material = SubResource("StandardMaterial3D_ubyy0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvjkd"]
-albedo_color = Color(0.85098, 0, 1, 1)
+albedo_color = Color(0.396078, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ubyy0"]
+radius = 2.5
 
 [node name="PlayerController" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_ubyy0")
@@ -61,3 +64,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vvjkd")
 
 [node name="RayCast3D" type="RayCast3D" parent="Skier Visual Body"]
 target_position = Vector3(0, -4.34, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_ubyy0")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

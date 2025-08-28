@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://8j2xfx7njh8j"]
+[gd_scene load_steps=11 format=3 uid="uid://8j2xfx7njh8j"]
 
 [ext_resource type="PackedScene" uid="uid://bsr0c3kqef8tc" path="res://Models/skitrackimport.glb" id="1_7c1qw"]
 [ext_resource type="PackedScene" uid="uid://cdge550ondf27" path="res://Player/RigidBodyPlayer.tscn" id="1_cjeqb"]
-[ext_resource type="Script" uid="uid://c1nmdj5j6n3eg" path="res://rigid_body_3d.gd" id="1_i7llj"]
 [ext_resource type="Script" uid="uid://ugffqmed3xc7" path="res://game_manager.gd" id="1_y4ur2"]
 [ext_resource type="PackedScene" uid="uid://mihwpb02li17" path="res://Checkpoint.tscn" id="3_74u7v"]
+[ext_resource type="PackedScene" uid="uid://jcinulhl885d" path="res://Bots/rigid_body_3d.tscn" id="3_ttpew"]
+[ext_resource type="PackedScene" uid="uid://b6bx46mn7hl0h" path="res://Bots/rigid_body_3d_2.tscn" id="4_ttpew"]
 [ext_resource type="PackedScene" uid="uid://cqwdc8mn61pn7" path="res://flag.tscn" id="6_8re3b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cjeqb"]
@@ -20,20 +21,13 @@ sky = SubResource("Sky_y4ur2")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_i7llj"]
-radius = 5.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_74u7v"]
-radius = 5.0
-height = 10.0
-
 [node name="GameManager" type="Node3D"]
 script = ExtResource("1_y4ur2")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_cjeqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 362.144, -285.349)
-move_speed = 50.0
-acceleration = 100.0
+move_speed = 30.0
+acceleration = 150.0
 deceleration = 1.0
 turn_speed = 2.0
 ground_stick_force = 5000.0
@@ -41,27 +35,13 @@ ground_stick_force = 5000.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8re3b")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("checkpoint_system")]
+[node name="RigidBody3D" parent="." node_paths=PackedStringArray("checkpoint_system") instance=ExtResource("3_ttpew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28712, 362.662, -287.606)
-script = ExtResource("1_i7llj")
 checkpoint_system = NodePath("../CheckpointSystem")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_i7llj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_74u7v")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="." node_paths=PackedStringArray("checkpoint_system")]
+[node name="RigidBody3D2" parent="." node_paths=PackedStringArray("checkpoint_system") instance=ExtResource("4_ttpew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.71, 362.662, -287.606)
-script = ExtResource("1_i7llj")
 checkpoint_system = NodePath("../CheckpointSystem")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
-shape = SubResource("SphereShape3D_i7llj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
-mesh = SubResource("SphereMesh_74u7v")
 
 [node name="skitrackimport" parent="." instance=ExtResource("1_7c1qw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.2138, 1.19209e-07, -1423.5)
